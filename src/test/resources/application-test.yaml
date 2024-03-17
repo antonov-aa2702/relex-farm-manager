@@ -1,0 +1,9 @@
+spring:
+  datasource:
+    driver-class-name: org.testcontainers.jdbc.ContainerDatabaseDriver
+    url: jdbc:tc:postgresql:16:///farm_repository_test
+  liquibase:
+    change-log: classpath:db/changelog/db.changelog-test.yaml
+owner:
+  email: andreyantonov2702@gmail.com
+  password: 12345

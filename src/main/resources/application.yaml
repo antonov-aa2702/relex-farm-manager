@@ -1,0 +1,51 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://${POSTGRES_HOST}:${POSTGRES_PORT}/${POSTGRES_DB}
+    username: ${POSTGRES_USER}
+    password: ${POSTGRES_PASSWORD}
+    driver-class-name: org.postgresql.Driver
+  liquibase:
+    enabled: true
+    default-schema: farm_storage
+    liquibase-schema: migrations
+  sql:
+    init:
+      mode: always
+  jpa:
+    properties.hibernate:
+      show_sql: true
+      format_sql: true
+      hbm2ddl.auto: validate
+    open-in-view: false
+  scheduled:
+    cron:
+      expression:
+        every_minute: "0 * * * * ?"
+        daily: "0 2 16 * * *"
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: andrejantonov63@gmail.com
+    password: pscbhpcyfpoupxay
+    properties:
+      mail:
+        debug: false
+        transport:
+          protocol: smtp
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+logging:
+  level:
+    root: INFO
+  file:
+    name: "logs/app.log"
+security:
+  jwt:
+    secret: ZnNqa2ZkamtmaGpmaHNqa2hmamtzaGpmaGZramhhZmpzaGRmbkZESEZIU0RKRkhKU0RGSFNKRkxE
+    lifetime: 1
+owner:
+  email: andreyantonov2702@gmail.com
+springdoc:
+  override-with-generic-response: false
