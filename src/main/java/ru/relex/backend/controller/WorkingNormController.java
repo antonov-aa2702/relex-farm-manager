@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RestController;
 import ru.relex.backend.dto.filter.ProductDetailFilter;
 import ru.relex.backend.dto.product.AnalyticDetailsDto;
 import ru.relex.backend.dto.product.WorkingNormDto;
-import ru.relex.backend.dto.validation.Creatable;
 import ru.relex.backend.service.AnalyticsService;
 import ru.relex.backend.service.WorkingNormService;
 
@@ -42,8 +41,7 @@ public class WorkingNormController {
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     @Operation(summary = "Добавление рабочей нормы")
-    public WorkingNormDto addWorkingNorm(@Validated(Creatable.class)
-                                         @RequestBody WorkingNormDto workingNormDto) {
+    public WorkingNormDto addWorkingNorm(@Validated @RequestBody WorkingNormDto workingNormDto) {
         return workingNormService.create(workingNormDto);
     }
 
@@ -56,8 +54,7 @@ public class WorkingNormController {
      */
     @GetMapping("/analytics")
     @Operation(summary = "Получение аналитики")
-    public List<AnalyticDetailsDto> getAnalytics(@Validated(Creatable.class)
-                                                 ProductDetailFilter productDetailFilter) {
+    public List<AnalyticDetailsDto> getAnalytics(@Validated ProductDetailFilter productDetailFilter) {
         return analyticsService.getAnalyticsByProductDetailFilter(productDetailFilter);
     }
 }

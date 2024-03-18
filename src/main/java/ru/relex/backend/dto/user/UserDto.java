@@ -9,7 +9,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.validator.constraints.Length;
-import ru.relex.backend.dto.validation.Creatable;
 import ru.relex.backend.entity.Role;
 
 /**
@@ -31,38 +30,37 @@ public class UserDto {
     /**
      * Имя
      */
-    @NotNull(message = "Имя не может отсутствовать", groups = Creatable.class)
-    @Length(min = 1, max = 32, message = "Длина имени должна быть меньше 32 символов", groups = Creatable.class)
+    @NotNull(message = "Имя не может отсутствовать")
+    @Length(min = 1, max = 32, message = "Длина имени должна быть меньше 32 символов")
     private String firstName;
 
     /**
      * Фамилия
      */
-    @NotNull(message = "Фамилия не может отсутствовать", groups = Creatable.class)
-    @Length(min = 1, max = 32, message = "Фамилия должна быть меньше 32 символов", groups = Creatable.class)
+    @NotNull(message = "Фамилия не может отсутствовать")
+    @Length(min = 1, max = 32, message = "Фамилия должна быть меньше 32 символов")
     private String middleName;
 
     /**
      * Отчество
      */
-    @NotNull(message = "Отчество не может отсутствовать", groups = Creatable.class)
-    @Length(min = 1, max = 32, message = "Отчество должна быть меньше 32 символов", groups = Creatable.class)
+    @NotNull(message = "Отчество не может отсутствовать")
+    @Length(min = 1, max = 32, message = "Отчество должна быть меньше 32 символов")
     private String lastName;
 
     /**
      * Электронный адрес
      */
-    @NotNull(message = "Электронный адрес не может отсутствовать", groups = Creatable.class)
-    @Email(message = "Неправильный формат электронного адреса", groups = Creatable.class)
-    @Length(min = 5, max = 32, message = "Электронный адрес должен содержать от 5 до 32 символов",
-            groups = Creatable.class)
+    @NotNull(message = "Электронный адрес не может отсутствовать")
+    @Email(message = "Неправильный формат электронного адреса")
+    @Length(min = 5, max = 32, message = "Электронный адрес должен содержать от 5 до 32 символов")
     private String email;
 
     /**
      * Пароль
      */
-    @NotNull(message = "Пароль не может отсутствовать", groups = Creatable.class)
-    @Length(min = 5, max = 32, message = "Пароль должен содержать от 5 до 32 символов", groups = Creatable.class)
+    @NotNull(message = "Пароль не может отсутствовать")
+    @Length(min = 5, max = 32, message = "Пароль должен содержать от 5 до 32 символов")
     private String password;
 
     /**

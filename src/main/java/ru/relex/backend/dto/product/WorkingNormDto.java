@@ -10,7 +10,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.format.annotation.DateTimeFormat;
-import ru.relex.backend.dto.validation.Creatable;
 import ru.relex.backend.entity.Status;
 
 import java.time.LocalDateTime;
@@ -34,20 +33,20 @@ public class WorkingNormDto {
     /**
      * Идентификатор продукта, для которого будет сформирована рабочая норма
      */
-    @NotNull(message = "Идентификатор продукта не может отсутствовать", groups = Creatable.class)
+    @NotNull(message = "Идентификатор продукта не может отсутствовать")
     private Long productId;
 
     /**
      * Идентификатор сотрудника, для которого будет сформирована рабочая норма
      */
-    @NotNull(message = "Идентификатор сотрудника не может отсутствовать", groups = Creatable.class)
+    @NotNull(message = "Идентификатор сотрудника не может отсутствовать")
     private Long employeeId;
 
     /**
      * Необходимое рабочее количество по производству
      */
-    @NotNull(message = "Размер рабочей нормы не может быть пустым", groups = Creatable.class)
-    @Min(value = 1, message = "Размер рабочей нормы не может быть меньше 1", groups = Creatable.class)
+    @NotNull(message = "Размер рабочей нормы не может быть пустым")
+    @Min(value = 1, message = "Размер рабочей нормы не может быть меньше 1")
     private Integer workingCount;
 
     /**
@@ -58,7 +57,7 @@ public class WorkingNormDto {
     /**
      * Крайний срок выполнения рабочей нормы
      */
-    @NotNull(message = "Срок выполнения рабочей нормы не может быть пустым", groups = Creatable.class)
+    @NotNull(message = "Срок выполнения рабочей нормы не может быть пустым")
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm")
     private LocalDateTime deadline;

@@ -8,7 +8,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.format.annotation.DateTimeFormat;
-import ru.relex.backend.dto.validation.Creatable;
 
 import java.time.LocalDateTime;
 
@@ -26,14 +25,14 @@ public class ProductDetailFilter {
     /**
      * Начало периода для получения отчета
      */
-    @NotNull(message = "Начало периода не может быть пустым", groups = {Creatable.class})
+    @NotNull(message = "Начало периода не может быть пустым")
     @DateTimeFormat(iso = DateTimeFormat.ISO.TIME, pattern = "yyyy-MM-dd HH:mm")
     public LocalDateTime startTime;
 
     /**
      * Конец периода для получения отчета
      */
-    @NotNull(message = "Конец периода не может быть пустым", groups = {Creatable.class})
+    @NotNull(message = "Конец периода не может быть пустым")
     @DateTimeFormat(iso = DateTimeFormat.ISO.TIME, pattern = "yyyy-MM-dd HH:mm")
     public LocalDateTime endTime;
 

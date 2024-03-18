@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RestController;
 import ru.relex.backend.dto.filter.ProductDetailFilter;
 import ru.relex.backend.dto.product.ProductDto;
 import ru.relex.backend.dto.product.ReportDetailsDto;
-import ru.relex.backend.dto.validation.Creatable;
 import ru.relex.backend.service.ProductService;
 import ru.relex.backend.service.ReportService;
 
@@ -42,7 +41,7 @@ public class ProductController {
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     @Operation(summary = "Добавление продукта")
-    public ProductDto addProduct(@Validated(Creatable.class) @RequestBody ProductDto productDto) {
+    public ProductDto addProduct(@Validated @RequestBody ProductDto productDto) {
         return productService.create(productDto);
     }
 
@@ -55,8 +54,7 @@ public class ProductController {
      */
     @GetMapping("/report")
     @Operation(summary = "Получение отчёта")
-    public List<ReportDetailsDto> getReport(@Validated(Creatable.class)
-                                            ProductDetailFilter productDetailFilter) {
+    public List<ReportDetailsDto> getReport(@Validated ProductDetailFilter productDetailFilter) {
         return reportService.getReportByProductDetailFilter(productDetailFilter);
     }
 

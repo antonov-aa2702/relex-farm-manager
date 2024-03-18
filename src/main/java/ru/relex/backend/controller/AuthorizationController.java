@@ -16,7 +16,6 @@ import ru.relex.backend.dto.auth.JwtRequest;
 import ru.relex.backend.dto.auth.JwtResponse;
 import ru.relex.backend.dto.user.ResponseUserDto;
 import ru.relex.backend.dto.user.UserDto;
-import ru.relex.backend.dto.validation.Creatable;
 import ru.relex.backend.service.SecurityService;
 
 /**
@@ -42,7 +41,7 @@ public class AuthorizationController {
     @PostMapping(value = "/login", produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(HttpStatus.CREATED)
     @Operation(summary = "Аутентификация пользователя")
-    public JwtResponse login(@Validated(Creatable.class) @RequestBody JwtRequest jwtRequest) {
+    public JwtResponse login(@Validated @RequestBody JwtRequest jwtRequest) {
         return securityService.login(jwtRequest);
     }
 
@@ -58,7 +57,7 @@ public class AuthorizationController {
     @PostMapping(value = "/registration", produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(HttpStatus.CREATED)
     @Operation(summary = "Регистрация пользователя")
-    public ResponseUserDto registration(@Validated(Creatable.class) @RequestBody UserDto userDto) {
+    public ResponseUserDto registration(@Validated @RequestBody UserDto userDto) {
         return securityService.registration(userDto);
     }
 }

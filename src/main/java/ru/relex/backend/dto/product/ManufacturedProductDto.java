@@ -10,7 +10,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.format.annotation.DateTimeFormat;
-import ru.relex.backend.dto.validation.Creatable;
 
 import java.time.LocalDateTime;
 
@@ -33,18 +32,18 @@ public class ManufacturedProductDto {
     /**
      * Идентификатор продукта, который будет произведен
      */
-    @NotNull(message = "Идентификатор продукта не может быть пустым", groups = Creatable.class)
+    @NotNull(message = "Идентификатор продукта не может быть пустым")
     private Long productId;
 
     /**
      * Количество производимого продукта
      */
-    @NotNull(message = "Количество не может быть пустым", groups = Creatable.class)
-    @Min(value = 1, message = "Количество должно быть больше 0", groups = Creatable.class)
+    @NotNull(message = "Количество не может быть пустым")
+    @Min(value = 1, message = "Количество должно быть больше 0")
     private Integer count;
 
     /**
-     * Время производства продукта
+     * Время производства продукта, устанавливается в момент создания
      */
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm")

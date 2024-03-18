@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.RestController;
 import ru.relex.backend.dto.filter.WorkingNormFilter;
 import ru.relex.backend.dto.product.ManufacturedProductDto;
 import ru.relex.backend.dto.product.WorkingNormDto;
-import ru.relex.backend.dto.validation.Creatable;
 import ru.relex.backend.service.ManufacturedProductService;
 import ru.relex.backend.service.WorkingNormService;
 
@@ -48,8 +47,7 @@ public class EmployeeController {
     @ResponseStatus(HttpStatus.CREATED)
     @Operation(summary = "Производство продукта")
     public WorkingNormDto produceProduct(@PathVariable("id") Long id,
-                                         @Validated(Creatable.class)
-                                         @RequestBody ManufacturedProductDto productDto) {
+                                         @Validated @RequestBody ManufacturedProductDto productDto) {
         return manufacturedProductService.produceProduct(productDto, id);
     }
 
@@ -65,7 +63,7 @@ public class EmployeeController {
     @PreAuthorize("@customSecurityExpression.canAccessEmployee(#id)")
     @Operation(summary = "Получение рабочих норм")
     public List<WorkingNormDto> getWorkingNorms(@PathVariable("id") Long id,
-                                                @Validated(Creatable.class) WorkingNormFilter workingNormFilter) {
+                                                @Validated WorkingNormFilter workingNormFilter) {
         return workingNormService.getWorkingNormsByFilter(id, workingNormFilter);
     }
 }

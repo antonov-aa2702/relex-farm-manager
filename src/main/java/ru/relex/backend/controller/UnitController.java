@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import ru.relex.backend.dto.product.UnitDto;
-import ru.relex.backend.dto.validation.Creatable;
 import ru.relex.backend.service.UnitService;
 
 import java.util.List;
@@ -39,7 +38,7 @@ public class UnitController {
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     @Operation(summary = "Добавление единицы измерения")
-    public UnitDto addUnit(@Validated(Creatable.class) @RequestBody UnitDto unitDto) {
+    public UnitDto addUnit(@Validated @RequestBody UnitDto unitDto) {
         return unitService.create(unitDto);
     }
 

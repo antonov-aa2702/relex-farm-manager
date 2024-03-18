@@ -8,7 +8,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.validator.constraints.Length;
-import ru.relex.backend.dto.validation.Creatable;
 
 /**
  * Модель данных для продукта.
@@ -29,16 +28,14 @@ public class ProductDto {
     /**
      * Название продукта
      */
-    @NotNull(message = "Название не может отсутствовать", groups = Creatable.class)
-    @Length(min = 2, max = 64, message = "Название должно содержать от 2 до 64 символов",
-            groups = Creatable.class)
+    @NotNull(message = "Название не может отсутствовать")
+    @Length(min = 2, max = 64, message = "Название должно содержать от 2 до 64 символов")
     private String name;
 
     /**
      * Название единицы измерения
      */
-    @NotNull(message = "Единица измерения не может отсутствовать", groups = Creatable.class)
-    @Length(min = 1, max = 16, message = "Единица измерения должна содержать от 1 до 16 символов",
-            groups = Creatable.class)
+    @NotNull(message = "Единица измерения не может отсутствовать")
+    @Length(min = 1, max = 16, message = "Единица измерения должна содержать от 1 до 16 символов")
     private String unit;
 }
