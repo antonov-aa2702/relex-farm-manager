@@ -9,7 +9,7 @@
 
 ## Стек
 
-`Java 17`, `Gradle`, `SpringBoot`, `PosgtreSQL`,  `Liquibase`,  `JWT`, `MapStruct`,
+`Java 17`, `Gradle`, `Spring`, `Hibernate`, `PosgtreSQL`,  `Liquibase`,  `JWT`, `MapStruct`,
 `QueryDsl`, `Lombok`, `TestContainers`, `Swagger`, `Docker`
 
 
@@ -263,8 +263,8 @@
 
 Просмотр выданных норм. Пример параметров запроса:
 
-- `startTime: 2024-03-15T06:00`
-- `endTime: 2024-03-15T18:00`
+- `startTime: 2024-03-15 06:00`
+- `endTime: 2024-03-15 18:00`
 - `status: IN_PROGRESS`
 
 Пример ответа:
@@ -290,8 +290,8 @@
 
 Получение отчета. Пример параметров запроса (фильтрация возможна и по employeeId/productId):
 
-- `startTime: 2024-03-15T06:00`
-- `endTime: 2024-03-15T18:00`
+- `startTime: 2024-03-15 06:00`
+- `endTime: 2024-03-15 18:00`
   
 Пример ответа:
 ```
@@ -312,8 +312,8 @@
 
 Получение аналитического отчета. Пример параметров запроса (фильтрация возможна и по employeeId/productId):
 
-- `startTime: 2024-03-15T06:00`
-- `endTime: 2024-03-15T18:00`
+- `startTime: 2024-03-15 06:00`
+- `endTime: 2024-03-15 18:00`
 
 Пример ответа:
 ```
