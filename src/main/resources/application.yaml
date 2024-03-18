@@ -21,7 +21,7 @@ spring:
     cron:
       expression:
         every_minute: "0 * * * * ?"
-        daily: "0 2 16 * * *"
+        daily: "0 0 19 * * *"
   mail:
     host: smtp.gmail.com
     port: 587
