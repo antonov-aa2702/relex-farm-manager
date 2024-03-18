@@ -16,5 +16,6 @@ public interface ProductDetailFilterValidator {
      *                                       которого нет в базе
      *                                       или сотрудник является владельцем
      */
-    void validateProductDetailFilter(ProductDetailFilter productDetailFilter) throws ResourceIllegalStateException;
+    void validateProductDetailFilter(ProductDetailFilter productDetailFilter)
+            throws ResourceIllegalStateException;
 }

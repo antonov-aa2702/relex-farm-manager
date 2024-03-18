@@ -27,7 +27,7 @@ public class JwtUserDetailsService implements UserDetailsService {
      *
      * @param username логин пользователя, который пытается войти в систему
      * @return объект для Spring Security, содержащий данные о пользователе, который найден в базе данных
-     * @throws UsernameNotFoundException если пользователь не найден
+     * @throws UsernameNotFoundException если пользователь не найден
      */
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {

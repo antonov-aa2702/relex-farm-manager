@@ -1,9 +1,9 @@
 package ru.relex.backend.security.expression;
 
-import ru.relex.backend.security.JwtEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
+import ru.relex.backend.security.JwtEntity;
 
 /**
  * Класс для создания выражений для проверки прав при выполнении запросов
@@ -22,7 +22,8 @@ public class CustomSecurityExpression {
      * для запрета доступа к ресурсам других пользователей.
      *
      * @param id идентификатор пользователя, который пытается получить доступ к ресурсу
-     * @return {@code true}, если пользователь с переданным id имеет права доступа к ресурсу, {@code false} в противном случае
+     * @return {@code true}, если пользователь с переданным id имеет права доступа к ресурсу, {@code false}
+     * в противном случае
      */
     public boolean canAccessEmployee(Long id) {
         Authentication authentication = SecurityContextHolder

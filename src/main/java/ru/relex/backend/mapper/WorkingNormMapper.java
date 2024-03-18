@@ -30,9 +30,11 @@ public abstract class WorkingNormMapper implements Mappable<WorkingNorm, Working
         return WorkingNorm.builder()
                 .id(dto.getId())
                 .product(productRepository.findById(dto.getProductId())
-                        .orElseThrow(() -> new ResourceIllegalStateException("Product not found")))
+                        .orElseThrow(() ->
+                                new ResourceIllegalStateException("Product not found")))
                 .user(userRepository.findById(dto.getEmployeeId())
-                        .orElseThrow(() -> new ResourceIllegalStateException("User not found")))
+                        .orElseThrow(()
+                                -> new ResourceIllegalStateException("User not found")))
                 .deadline(dto.getDeadline())
                 .workingCount(dto.getWorkingCount())
                 .currentCount(dto.getCurrentCount())

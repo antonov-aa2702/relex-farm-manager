@@ -3,17 +3,17 @@ package ru.relex.backend.mapper;
 import org.mapstruct.Mapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import ru.relex.backend.dto.product.ProductDto;
-import ru.relex.backend.dto.product.UnitDto;
 import ru.relex.backend.entity.Product;
-import ru.relex.backend.entity.Unit;
 import ru.relex.backend.repository.UnitRepository;
 import ru.relex.backend.util.StringUtil;
 
 /**
- * Реализация интерфейса {@link Mappable}  для преобразования {@link Product} в {@link ProductDto} и обратно.
+ * Реализация интерфейса {@link Mappable}  для преобразования {@link Product} в {@link ProductDto}
+ * и обратно.
  * <p>
- *  Переопределение некоторых методов необходимо, поскольку названия и типы полей отличаются и MapStruct не может их замапить.
- *  Явно нереализованные методы генерируется с помощью MapStruct.
+ * Переопределение некоторых методов необходимо, поскольку названия и типы полей отличаются
+ * и MapStruct не может их замапить.
+ * Явно нереализованные методы генерируется с помощью MapStruct.
  */
 @Mapper(componentModel = "spring")
 public abstract class ProductMapper implements Mappable<Product, ProductDto> {

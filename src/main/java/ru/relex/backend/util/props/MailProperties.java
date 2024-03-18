@@ -41,7 +41,7 @@ public class MailProperties {
     private String password;
 
     /**
-     * Настройки для работы с почто
+     * Настройки для работы с почтой
      */
     private Properties properties;
 

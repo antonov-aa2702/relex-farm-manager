@@ -18,7 +18,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class JwtProperties {
     /**
-     * Cекрет для работы с JWT
+     * Секрет для работы с JWT
      */
     private String secret;
 

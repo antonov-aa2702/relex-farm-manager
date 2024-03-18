@@ -47,7 +47,8 @@ public class ManufacturedProductServiceImpl implements ManufacturedProductServic
         return updatedWorkingNorm;
     }
 
-    private ManufacturedProduct getManufacturedProduct(ManufacturedProductDto manufacturedProductDto, Long employeeId) {
+    private ManufacturedProduct getManufacturedProduct(ManufacturedProductDto manufacturedProductDto,
+                                                       Long employeeId) {
         Product product = getProductById(manufacturedProductDto.getProductId());
         User user = getUserById(employeeId);
         return ManufacturedProduct.builder()

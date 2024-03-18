@@ -20,7 +20,8 @@ public interface ReportService {
      *
      * @param productDetailFilter фильтр для получения отчета
      * @return отчет
-     * @throws ResourceIllegalStateException если указан идентификатор продукта или сотрудника, которого нет в базе
+     * @throws ResourceIllegalStateException если указан идентификатор продукта или сотрудника,
+     *                                       которого нет в базе
      *                                       или сотрудник имеет роль владельца
      */
     List<ReportDetailsDto> getReportByProductDetailFilter(ProductDetailFilter productDetailFilter)

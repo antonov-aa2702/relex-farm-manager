@@ -16,8 +16,8 @@ public interface SecurityService {
     /**
      * Осуществляет аутентификацию пользователя в системе.
      *
-     * @param jwtRequest данные о пользователе, который̆ пытается войти в систему
-     * @return данные о пользователе, который прошел аутентификацию
+     * @param jwtRequest данные о пользователе, который пытается войти в систему
+     * @return данные о пользователе, который прошел аутентификацию
      * @throws AuthenticationException если произошла ошибка при аутентификации
      */
     JwtResponse login(JwtRequest jwtRequest) throws AuthenticationException;
@@ -25,8 +25,8 @@ public interface SecurityService {
     /**
      * Осуществляет регистрацию пользователя в системе.
      *
-     * @param userDto данные о пользователе, который регистрируется
-     * @return данные о пользователе, который прошел регистрацию
+     * @param userDto данные о пользователе, который регистрируется
+     * @return данные о пользователе, который прошел регистрацию
      * @throws ResourceIllegalStateException если пользователь уже существует
      */
     ResponseUserDto registration(UserDto userDto) throws ResourceIllegalStateException;

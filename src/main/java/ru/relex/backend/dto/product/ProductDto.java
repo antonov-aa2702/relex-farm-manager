@@ -35,7 +35,7 @@ public class ProductDto {
     private String name;
 
     /**
-     * Объект единицы измерения
+     * Название единицы измерения
      */
     @NotNull(message = "Единица измерения не может отсутствовать", groups = Creatable.class)
     @Length(min = 1, max = 16, message = "Единица измерения должна содержать от 1 до 16 символов",

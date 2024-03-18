@@ -54,8 +54,18 @@ public class AnalyticsServiceImpl implements AnalyticsService {
         }).toList();
     }
 
-    private AnalyticDetailsDto getAnalyticDetailsDto(Tuple tuple, Integer totalWorkingNorm, Integer totalCurrentNorm, Double totalScore) {
-        return AnalyticDetailsDto.builder().employeeId(tuple.get(0, User.class).getId()).email(tuple.get(0, User.class).getEmail()).productId(tuple.get(1, Product.class).getId()).totalWorkingNorm(totalWorkingNorm).totalCurrentNorm(totalCurrentNorm).totalScore(totalScore).build();
+    private AnalyticDetailsDto getAnalyticDetailsDto(Tuple tuple,
+                                                     Integer totalWorkingNorm,
+                                                     Integer totalCurrentNorm,
+                                                     Double totalScore) {
+        return AnalyticDetailsDto.builder()
+                .employeeId(tuple.get(0, User.class).getId())
+                .email(tuple.get(0, User.class).getEmail())
+                .productId(tuple.get(1, Product.class).getId())
+                .totalWorkingNorm(totalWorkingNorm)
+                .totalCurrentNorm(totalCurrentNorm)
+                .totalScore(totalScore)
+                .build();
     }
 
     private Double getTotalScoreRounded(Integer totalCurrentNorm, Integer totalWorkingNorm) {

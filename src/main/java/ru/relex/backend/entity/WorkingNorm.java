@@ -1,7 +1,6 @@
 package ru.relex.backend.entity;
 
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Enumerated;
@@ -17,8 +16,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
-import org.hibernate.annotations.Fetch;
-import org.hibernate.annotations.FetchMode;
 
 import java.time.LocalDateTime;
 
@@ -72,10 +69,9 @@ public class WorkingNorm {
     private Integer currentCount;
 
     /**
-     * Крайний срок выполнения
+     * Крайний срок выполнения
      */
     @Column(name = "deadline")
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm")
     private LocalDateTime deadline;
 
     /**

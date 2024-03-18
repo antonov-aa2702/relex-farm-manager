@@ -46,14 +46,16 @@ public class SecurityConfig {
      * @throws Exception если происходит ошибка во время конфигурации
      */
     @Bean
-    public AuthenticationManager authenticationManager(AuthenticationConfiguration authenticationConfiguration) throws Exception {
+    public AuthenticationManager authenticationManager(AuthenticationConfiguration authenticationConfiguration)
+            throws Exception {
         return authenticationConfiguration.getAuthenticationManager();
     }
 
     /**
-     * Определяет конфигурацию фильтров безопасности в приложении, добавляет настройки для поддержки JWT.
-     * Также определяет запросы, которые не требуют аутентификации или требуют аутентификации с определенными ролями.
-     * В системе предполагается использования 2х ролей - OWNER и EMPLOYEE.
+     * Определяет конфигурацию фильтров безопасности в приложении, добавляет настройки для
+     * поддержки JWT. Также определяет запросы, которые не требуют аутентификации или требуют
+     * аутентификации с определенными ролями. В системе предполагается
+     * использование 2х ролей - OWNER и EMPLOYEE.
      *
      * @param http HTTP безопасность
      * @return цепочка фильтров безопасности

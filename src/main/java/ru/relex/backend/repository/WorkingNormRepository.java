@@ -26,7 +26,8 @@ public interface WorkingNormRepository extends JpaRepository<WorkingNorm, Long>,
      * @param product продукт
      * @param user    сотрудник
      * @param status  статус
-     * @return {@code Optional}, содержащий рабочую норму или {@code Optional.empty()}, если рабочей нормы не найдено.
+     * @return {@code Optional}, содержащий рабочую норму или {@code Optional.empty()},
+     * если рабочей нормы не найдено.
      */
     Optional<WorkingNorm> findByProductAndUserAndStatus(Product product,
                                                         User user,

@@ -29,7 +29,7 @@ public class ResponseUserDto {
      */
     private String email;
     /**
-     * Статус акканта пользователя
+     * Статус аккаунта пользователя
      */
     private Boolean enabled;
 

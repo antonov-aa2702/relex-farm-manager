@@ -34,7 +34,7 @@ public class EmailServiceImpl implements EmailService {
                 Аналитическая информация включает данные об общей эффективности работы
                 сотрудника за текущий день. Данные представлены в виде таблицы.
                 Колонки: сотрудник, его эффективность(КПД в %).
-                КПД рассчитывается как отношение собранной продукции к заданной норме.            
+                КПД рассчитывается как отношение собранной продукции к заданной норме.           
             """;
 
     public static final String DESCRIPTION_FOR_REPORT = """
@@ -69,7 +69,8 @@ public class EmailServiceImpl implements EmailService {
             MimeMessage mimeMessage = mailSender.createMimeMessage();
             MimeMessageHelper helper = new MimeMessageHelper(mimeMessage, true);
             helper.setTo(email);
-            helper.setSubject(String.format("Аналитический отчет по эффективности всех работников фермы %s", LocalDate.now()));
+            helper.setSubject(String.format("Аналитический отчет по эффективности всех работников фермы %s",
+                    LocalDate.now()));
             helper.setText(DESCRIPTION_FOR_EMPLOYEE_ANALYTICS);
             String fileName = String.format("analytics-employees_%s.csv", LocalDate.now());
             helper.addAttachment(fileName, new ByteArrayResource(content.getBytes()));
@@ -84,7 +85,8 @@ public class EmailServiceImpl implements EmailService {
             MimeMessage mimeMessage = mailSender.createMimeMessage();
             MimeMessageHelper helper = new MimeMessageHelper(mimeMessage, true);
             helper.setTo(email);
-            helper.setSubject(String.format("Отчетная информация о произведенных товаров на ферме за %s", LocalDate.now()));
+            helper.setSubject(String.format("Отчетная информация о произведенных товаров на ферме за %s",
+                    LocalDate.now()));
             helper.setText(DESCRIPTION_FOR_REPORT);
             String fileName = String.format("report_%s.csv", LocalDate.now());
             helper.addAttachment(fileName, new ByteArrayResource(content.getBytes()));

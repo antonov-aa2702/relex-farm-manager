@@ -15,7 +15,13 @@ public interface WorkingNormService {
 
     /**
      * Осуществляет создание рабочей нормы.
-     * Время создания рабочей нормы возможно только для текущего дня.
+     * <p>
+     * Запрещено добавлять рабочую норму задним числом.
+     * Разрешается добавлять рабочую норму только на сегодняшний день.
+     * Время установления рабочей нормы устанавливается в соответствии с требованиями
+     * владельца фермы. Не допускается повторно добавлять рабочую норму для одного и того же
+     * продукта и одного и того же сотрудника при действующей рабочей нормы для данного
+     * продукта и сотрудника. После выполнения такой рабочей нормы это разрешается делать.
      * Рабочая норма создается только для активного аккаунта сотрудника.
      *
      * @param workingNormDto рабочая норма
@@ -39,14 +45,16 @@ public interface WorkingNormService {
             throws ResourceIllegalStateException;
 
     /**
-     * Осуществляет обновление рабочей нормы с добавлением некоторого количества произведенного продукта.
+     * Осуществляет обновление показателей рабочей нормы
+     * с добавлением некоторого количества произведенного продукта.
      *
      * @param workingNormDto рабочая норма, которая будет обновлена
      * @param count          количество произведенного продукта
      * @return обновленная рабочая норма
      * @throws ResourceIllegalStateException если не найдена рабочая норма
      */
-    WorkingNormDto updateWorkingNorm(WorkingNormDto workingNormDto, Integer count) throws ResourceIllegalStateException;
+    WorkingNormDto updateWorkingNorm(WorkingNormDto workingNormDto, Integer count)
+            throws ResourceIllegalStateException;
 
     /**
      * Осуществляет получение списка рабочих для конкретного сотрудника по фильтру.
@@ -56,7 +64,8 @@ public interface WorkingNormService {
      * @return список рабочих норм
      * @throws ResourceIllegalStateException если сотрудник является владельцем
      */
-    List<WorkingNormDto> getWorkingNormsByFilter(Long employeeId, WorkingNormFilter workingNormFilter) throws ResourceIllegalStateException;
+    List<WorkingNormDto> getWorkingNormsByFilter(Long employeeId, WorkingNormFilter workingNormFilter)
+            throws ResourceIllegalStateException;
 
     /**
      * Осуществляет обновление рабочей нормы.

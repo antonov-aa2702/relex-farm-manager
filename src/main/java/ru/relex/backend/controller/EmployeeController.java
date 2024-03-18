@@ -23,7 +23,7 @@ import ru.relex.backend.service.WorkingNormService;
 import java.util.List;
 
 /**
- * Контроллер, который обрабатывает HTTP-запросы, связанные работой сотрудников фермы.
+ * Контроллер, который обрабатывает HTTP-запросы, связанные с работой сотрудников фермы.
  */
 @RestController
 @RequestMapping("/api/v1/employees")
@@ -32,7 +32,6 @@ import java.util.List;
 public class EmployeeController {
 
     private final ManufacturedProductService manufacturedProductService;
-
     private final WorkingNormService workingNormService;
 
     /**
@@ -41,23 +40,22 @@ public class EmployeeController {
      *
      * @param id         идентификатор сотрудника, который добавляет продукт
      * @param productDto продукт, который будет добавлен
-     * @return данные, содержащие информацию об оставшемся количестве продуктов, необходимых для достижения рабочей нормы
+     * @return данные, содержащие информацию об оставшемся количестве продуктов,
+     * необходимых для достижения рабочей нормы
      */
     @PostMapping("/{id}/products")
     @PreAuthorize("@customSecurityExpression.canAccessEmployee(#id)")
     @ResponseStatus(HttpStatus.CREATED)
     @Operation(summary = "Производство продукта")
-    public WorkingNormDto produceProduct(@PathVariable("id") Long id, @Validated(Creatable.class) @RequestBody ManufacturedProductDto productDto) {
+    public WorkingNormDto produceProduct(@PathVariable("id") Long id,
+                                         @Validated(Creatable.class)
+                                         @RequestBody ManufacturedProductDto productDto) {
         return manufacturedProductService.produceProduct(productDto, id);
     }
 
     /**
      * Получение всех рабочих норм конкретного сотрудника.
      * Запрещено получать рабочие нормы чужих сотрудников.
-     * <p>
-     * Получение происходит по фильтру. В качестве
-     * полей фильтра передается временной интервал, а также интересуемый статус рабочей нормы.
-     * Разрешено просматривать рабочие нормы в любом статусе.
      *
      * @param id                идентификатор сотрудника
      * @param workingNormFilter фильтр для получения рабочих норм
@@ -66,7 +64,8 @@ public class EmployeeController {
     @GetMapping("/{id}/working-norms")
     @PreAuthorize("@customSecurityExpression.canAccessEmployee(#id)")
     @Operation(summary = "Получение рабочих норм")
-    public List<WorkingNormDto> getWorkingNorms(@PathVariable("id") Long id, @Validated(Creatable.class) WorkingNormFilter workingNormFilter) {
+    public List<WorkingNormDto> getWorkingNorms(@PathVariable("id") Long id,
+                                                @Validated(Creatable.class) WorkingNormFilter workingNormFilter) {
         return workingNormService.getWorkingNormsByFilter(id, workingNormFilter);
     }
 }

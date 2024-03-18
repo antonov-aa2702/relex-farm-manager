@@ -154,5 +154,4 @@ class FilterWorkingNormRepositoryFilterTest {
                 .toList();
         assertThat(currentCounts).contains(20);
     }
-
 }

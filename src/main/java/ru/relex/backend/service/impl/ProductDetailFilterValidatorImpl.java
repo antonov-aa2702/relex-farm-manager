@@ -33,6 +33,9 @@ public class ProductDetailFilterValidatorImpl implements ProductDetailFilterVali
         }
         if (productId != null) {
             ProductDto product = productService.getById(productDetailFilter.getProductId());
+            if(product == null) {
+                throw new ResourceIllegalStateException("Товар не найден");
+            }
         }
     }
 }

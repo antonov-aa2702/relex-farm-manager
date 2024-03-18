@@ -22,7 +22,7 @@ import static ru.relex.backend.entity.WorkingNorm_.WORKING_COUNT;
 public class CsvUtil {
 
     public static final String TOTAL_COUNT = "totalCount";
-    private static final String EFFECTIVENESS = "efficiency(%s)";
+    private static final String EFFECTIVENESS = "efficiency(%)";
 
     public static String getCsvFromAnalyticDetails(List<AnalyticDetailsDto> analytics) {
         StringBuilder csvContent = new StringBuilder();

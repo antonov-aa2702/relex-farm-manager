@@ -68,7 +68,8 @@ public class WorkingNormServiceImpl implements WorkingNormService {
         }
         LocalDateTime offsetTime = workingNormDto.getDeadline().plusHours(1);
         if (!LocalDateTimeUtil.isTodayDeadlineBefore(offsetTime, 18, 0)) {
-            throw new ResourceIllegalStateException("Рабочий день заканчивается в 18:00. Последнюю задачу можно выдать в 17:00.");
+            throw new ResourceIllegalStateException(
+                    "Рабочий день заканчивается в 18:00. Последнюю задачу можно выдать в 17:00.");
         }
     }
 

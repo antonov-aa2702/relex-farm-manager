@@ -42,7 +42,8 @@ public interface UserService {
      *
      * @param employeeID идентификатор сотрудника
      * @return данные об уволенном сотруднике
-     * @throws ResourceIllegalStateException если сотрудник не найден или уже был уволен или не является сотрудником
+     * @throws ResourceIllegalStateException если сотрудник не найден или уже был уволен
+     *                                       или не является сотрудником
      */
     ResponseUserDto dismissEmployee(Long employeeID) throws ResourceIllegalStateException;
 
